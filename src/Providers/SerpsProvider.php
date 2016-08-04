@@ -4,7 +4,7 @@ namespace BrightOak\Serps\Providers;
 
 use Illuminate\Support\ServiceProvider;
 
-class UploadHelperProvider extends ServiceProvider
+class SerpsProvider extends ServiceProvider
 {
     /**
      * Bootstrap the application services.
