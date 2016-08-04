@@ -17,7 +17,7 @@
           "psr-4": {
             "BrightOak\\Serps\\": "src"
           }
-        },
+        }
       }
     }
   ],
