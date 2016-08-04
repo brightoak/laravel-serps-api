@@ -1,0 +1,35 @@
+{
+  "name": "brightoak/laravel-serps-api",
+  "description": "A Laravel 5 wrapper for the serps.com API.",
+  "license": "MIT",
+  "repositories": [
+    {
+      "type": "package",
+      "package": {
+        "name": "brightoak/laravel-serps-api",
+        "version": "dev-master",
+        "source": {
+          "url": "git://github.com/brightoak/laravel-serps-api.git",
+          "type": "git",
+          "reference": "master"
+        },
+        "autoload": {
+          "psr-4": {
+            "Brightoak\\Serps\\": "src"
+          }
+        }
+      }
+    }
+  ],
+  "authors": [
+    {
+      "name": "Rory McDaniel",
+      "email": "rory@brightoak.com"
+    }
+  ],
+  "require": {
+    "guzzlehttp/guzzle": "^6.2@dev",
+    "illuminate/contracts": "^5.1",
+    "illuminate/support": "^5.1"
+  }
+}
