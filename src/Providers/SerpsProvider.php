@@ -1,7 +1,7 @@
 <?php
-
 namespace BrightOak\Serps\Providers;
 
+use BrightOak\Serps;
 use Illuminate\Support\ServiceProvider;
 
 class SerpsProvider extends ServiceProvider
