@@ -3,7 +3,7 @@ namespace BrightOak\Serps;
 
 use BrightOak\Serps\Exceptions\SerpsException;
 use GuzzleHttp\Client;
-use Illuminate\Contracts\Cache\Repository;
+use Illuminate\Support\Facades\Cache;
 
 // Several functions in this class inspired by and borrowed from https://github.com/spatie/laravel-analytics
 
@@ -16,8 +16,6 @@ class Serps
 
     protected $oganizationId;
 
-    /** @var \Illuminate\Contracts\Cache\Repository */
-    protected $cache;
 
     /** @var int */
     protected $cacheLifeTimeInMinutes = 0;
@@ -34,7 +32,6 @@ class Serps
 
         $this->apiKey = env('SERPS_API_KEY');
 
-        $this->cache = app(Repository::class);
     }
 
     /**
@@ -63,10 +60,10 @@ class Serps
         $cacheName = $this->determineCacheName($url);
 
         if ($this->cacheLifeTimeInMinutes == 0) {
-            $this->cache->forget($cacheName);
+            Cache::forget($cacheName);
         }
 
-        return $this->cache->remember($cacheName, $this->cacheLifeTimeInMinutes, function () use ($url) {
+        return Cache::remember($cacheName, $this->cacheLifeTimeInMinutes, function () use ($url) {
             $request = $this->client->get($url, [
                 'headers' => ['X-Api-Token' => env('SERPS_API_KEY')],
                 'auth' => [env('SERPS_USER'), env('SERPS_PASS')]
