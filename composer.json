@@ -29,7 +29,6 @@
   ],
   "require": {
     "guzzlehttp/guzzle": "^6.2@dev",
-    "illuminate/contracts": "^5.1",
     "illuminate/support": "^5.1"
   }
 }
