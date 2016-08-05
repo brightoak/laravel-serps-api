@@ -4,7 +4,7 @@ namespace BrightOak\Serps\Facades;
 
 use Illuminate\Support\Facades\Facade;
 
-class SerpsFacade extends Facade
+class Serps extends Facade
 {
 
     protected static function getFacadeAccessor()
