@@ -22,7 +22,7 @@ class Serps
     /** @var int */
     protected $cacheLifeTimeInMinutes = 0;
 
-    public function __construct($options = null, Repository $cache)
+    public function __construct($options = null)
     {
 
         if ($options) {
@@ -30,11 +30,11 @@ class Serps
         } else {
             $this->client = new Client(['base_uri' => 'http://api.serps.com/']);
         }
-        $this->client->setCacheLifeTimeInMinutes(env('SERPS_CACHE_LIFETIME'));
+        $this->setCacheLifeTimeInMinutes(env('SERPS_CACHE_LIFETIME'));
 
         $this->apiKey = env('SERPS_API_KEY');
 
-        $this->cache = $cache;
+        $this->cache = app(Repository::class);
     }
 
     /**
@@ -83,9 +83,9 @@ class Serps
     /*
    * Determine the cache name for the set of query properties given.
    */
-    protected function determineCacheName(array $properties)
+    protected function determineCacheName( $properties)
     {
-        return 'brightoak.laravel-serps-api.'.md5(serialize($properties));
+        return 'brightoak.laravel-serps-api.'.md5($properties);
     }
 
 
